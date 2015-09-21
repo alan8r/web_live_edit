@@ -1,0 +1,68 @@
+<html>
+  <head>
+    <title>LIVE EDIT v0.1</title>
+    <style>
+      
+      * {
+        margin: 0px;
+        padding: 0px;
+      }
+      
+      body {
+        background-color: #333333;
+      }
+      
+      table {
+        width: 100%;
+        height: 100%;
+      }
+      
+      td {
+        border: solid 0px #000000;
+      }
+      
+      #edit {
+        width: 30%;
+        border: 0px;
+      }
+      
+      #input {
+        height: 100%;
+        width: 100%;
+        background-color: #000000;
+        color: #FFFFFF;
+      }
+      
+      #main {
+        width: 70%;
+      }
+      
+      #frame {
+        width: 99.5%;
+        height: 99%;
+        border: solid 1px #000000;
+        background-color: #FFFFFF;
+        color: #000000;
+      }
+      
+    </style>
+  </head>
+  <body>
+    <table>
+      <tr>
+        <td id="edit">
+          <textarea autofocus id="input" onchange="renderPage()" onkeyup="renderPage()"></textarea><br />
+        </td>
+        <td id="main">
+          <iframe id="frame"></iframe>
+        </td>
+      </tr>
+    </table>
+    <script>
+      function renderPage() {
+        var code = document.getElementById("input").value;
+        document.getElementById("frame").srcdoc = code;
+      }
+    </script>
+  </body>
+</html>
